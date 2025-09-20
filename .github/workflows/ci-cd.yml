@@ -3,12 +3,10 @@ name: CI/CD
 on:
   push:
     branches: [ main ]
+    tags: 
+      - 'v*'
   pull_request:
     branches: [ main ]
-  # Déclenche sur les tags pour la release
-  push:
-    tags:
-      - 'v*'
 
 jobs:
   build:
