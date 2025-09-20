@@ -11,7 +11,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const langs = [
   {
@@ -31,15 +32,31 @@ const langs = [
   }
 ]
 
-const selectedLang = ref('fr')
+const { locale } = useI18n()
+const selectedLang = ref(locale.value)
 
 function selectLang(lang) {
   selectedLang.value = lang
-  // Ajoutez ici la logique i18n ou stockage local
+  locale.value = lang
+  // Optionnel : persister la langue
   // localStorage.setItem('lang', lang)
-  // location.reload()
-  alert('Langue changée en : ' + lang)
 }
+
+// Optionnel : synchroniser avec localStorage au chargement
+if (typeof window !== 'undefined') {
+  const stored = localStorage.getItem('lang')
+  if (stored && langs.some(l => l.value === stored)) {
+    selectedLang.value = stored
+    locale.value = stored
+  }
+}
+
+// Optionnel : surveiller les changements et stocker
+watch(selectedLang, (val) => {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('lang', val)
+  }
+})
 </script>
 
 <style scoped>
@@ -53,7 +70,6 @@ function selectLang(lang) {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom-left-radius: 16px;
-  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.07);
   transition: all 0.3s cubic-bezier(.4, 1, .7, 1);
 }
 
