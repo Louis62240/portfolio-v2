@@ -2,19 +2,14 @@
   <section class="hero-section">
     <transition name="fade-slide-right" appear>
       <div class="hero-content">
-        <h1 class="hero-title custom-text">Louis Hanquiez</h1>
-        <h2 class="hero-subtitle custom-text">Développeur Full-stack</h2>
-        <h3 class="hero-position custom-text">Basé à Lille, France</h3>
-        <p class="hero-desc custom-text">
-          Passionné par le développement web et logiciel, je conçois des applications modernes, performantes et
-          accessibles.<br>
-          <span class="hero-stack">Stack : <strong>TypeScript</strong>, <strong>Vue.js</strong>,
-            <strong>Node.js</strong>,
-            <strong>Three.js</strong>, <strong>HTML/CSS</strong>, <strong>Python</strong></span>
-        </p>
+        <h1 class="hero-title custom-text">{{ $t('hero.name') }}</h1>
+        <h2 class="hero-subtitle custom-text">{{ $t('hero.title') }}</h2>
+        <h3 class="hero-position custom-text">{{ $t('hero.position') }}</h3>
+        <p class="hero-desc custom-text">{{ $t('hero.desc') }}</p>
+        <span class="hero-stack" v-html="$t('hero.stack')"></span>
         <div class="hero-links">
-          <a href="#portfolio" class="hero-btn custom-text">Voir mes projets</a>
-          <a href="#contact" class="hero-btn custom-text">Me contacter</a>
+          <a href="#portfolio" class="hero-btn custom-text">{{ $t('hero.projects') }}</a>
+          <a href="#contact" class="hero-btn custom-text">{{ $t('hero.contact') }}</a>
         </div>
       </div>
     </transition>
@@ -22,7 +17,7 @@
 </template>
 
 <script setup>
-// Pas de logique JS nécessaire pour ce composant statique
+// Utilisation de $t pour la traduction avec vue-i18n
 </script>
 
 <style scoped>
@@ -108,6 +103,7 @@
 .hero-stack {
   display: block;
   margin-top: 0.7rem;
+  margin-bottom: 1.2rem;
   color: var(--color-button);
   font-size: 1.08rem;
 }
