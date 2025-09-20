@@ -1,0 +1,26 @@
+:root {
+  /* Couleurs principales */
+  --color-background: #004643; /* Fond principal */
+  --color-headline: #fffffe;   /* Titres / Headline */
+  --color-paragraph: #abd1c6;  /* Texte des paragraphes */
+
+  /* Couleurs boutons */
+  --color-button: #f9bc60;     /* Fond des boutons */
+  --color-button-text: #001e1d;/* Texte des boutons */
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-paragraph);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  background-color: var(--color-background);
+  color: var(--color-paragraph);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
