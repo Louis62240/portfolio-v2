@@ -4,6 +4,7 @@
       <div class="hero-content">
         <h1 class="hero-title custom-text">Louis Hanquiez</h1>
         <h2 class="hero-subtitle custom-text">Développeur Full-stack</h2>
+        <h3 class="hero-position custom-text">Basé à Lille, France</h3>
         <p class="hero-desc custom-text">
           Passionné par le développement web et logiciel, je conçois des applications modernes, performantes et
           accessibles.<br>
@@ -132,7 +133,7 @@
 
 .hero-btn:hover {
   background: var(--color-headline);
-  color: var(--color-button);
+  color: #222;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
 }
 

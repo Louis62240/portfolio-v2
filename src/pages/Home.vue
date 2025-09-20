@@ -1,7 +1,7 @@
 <template>
   <Loader v-if="isLoading" />
   <div v-else class="home-container">
-    <!-- <Header /> -->
+    <HeaderLangSwitcher />
     <div class="main-content">
       <div class="robot-side">
         <Robot />
@@ -18,6 +18,7 @@ import Loader from "../components/Loader.vue"
 import Header from "../components/Header.vue"
 import Robot from "../components/Robot.vue"
 import Description from "../components/Description.vue"
+import HeaderLangSwitcher from "../components/HeaderLangSwitcher.vue"
 const isLoading = ref(true)
 onMounted(() => {
   setTimeout(() => {

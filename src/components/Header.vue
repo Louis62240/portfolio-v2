@@ -30,6 +30,15 @@
           </li>
         </ul>
 
+        <!-- Sélecteur de langue -->
+        <div class="lang-switcher">
+          <select v-model="selectedLang" @change="changeLang" aria-label="Choisir la langue">
+            <option value="fr">FR</option>
+            <option value="en">EN</option>
+            <option value="es">ES</option>
+          </select>
+        </div>
+
         <!-- Indicateur mobile -->
         <div class="mobile-indicator"></div>
       </div>
@@ -38,7 +47,17 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
+
+const selectedLang = ref('fr')
+
+function changeLang() {
+  // Ici, vous pouvez ajouter la logique pour changer la langue du site
+  // Par exemple, stocker la langue dans le localStorage ou utiliser un plugin i18n
+  // localStorage.setItem('lang', selectedLang.value)
+  // location.reload() // à remplacer par une vraie gestion i18n
+  alert('Langue changée en : ' + selectedLang.value)
+}
 
 onMounted(() => {
   // Animation d'entrée séquentielle
@@ -219,6 +238,27 @@ onMounted(() => {
   background: var(--color-button);
   border-radius: 50%;
   animation: pulse 2s infinite;
+}
+
+.lang-switcher {
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.lang-switcher select {
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-paragraph, #ccc);
+  background: var(--color-background, #fff);
+  color: var(--color-paragraph, #333);
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.lang-switcher select:focus {
+  border: 1.5px solid var(--color-button, #667eea);
 }
 
 @keyframes pulse {
