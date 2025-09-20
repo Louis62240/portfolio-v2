@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as a parent image
-FROM node:18-alpine
+FROM node:22-alpine
 
 # Set the working directory
 WORKDIR /app
@@ -20,4 +20,4 @@ RUN npm run build
 EXPOSE 5173
 
 # Start the app
-CMD ["npm", "run", "preview"]
+CMD ["npm", "run", "preview", "--", "--host", "--port", "5173"]
