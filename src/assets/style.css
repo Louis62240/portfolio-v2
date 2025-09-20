@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
+
 :root {
   /* Couleurs principales */
   --color-background: #004643; /* Fond principal */
@@ -7,6 +9,17 @@
   /* Couleurs boutons */
   --color-button: #f9bc60;     /* Fond des boutons */
   --color-button-text: #001e1d;/* Texte des boutons */
+}
+/* Style texte personnalisé */
+.custom-text {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: none;
+  text-align: center;
+  color: var(--color-headline);
 }
 
 body {

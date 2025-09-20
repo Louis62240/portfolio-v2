@@ -3,29 +3,29 @@
     <nav class="nav">
       <div class="nav-container">
         <!-- Logo optionnel -->
-        <div class="logo">
-          <span class="logo-text">Portfolio de Louis Hanquiez</span>
+        <div class="logo full-width-logo">
+          <span class="logo-text custom-text" style="font-size:1.7rem;">Portfolio de Louis Hanquiez</span>
         </div>
 
         <ul class="nav-list">
           <li class="nav-item">
-            <a href="#home" class="nav-link active" data-text="Home">
-              <span>Home</span>
+            <a href="#home" class="nav-link active custom-text" data-text="Home">
+              <span class="custom-text" style="font-size:1.1rem;">Home</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#about" class="nav-link" data-text="About">
-              <span>About</span>
+            <a href="#about" class="nav-link custom-text" data-text="About">
+              <span class="custom-text" style="font-size:1.1rem;">About</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#portfolio" class="nav-link" data-text="Portfolio">
-              <span>Portfolio</span>
+            <a href="#portfolio" class="nav-link custom-text" data-text="Portfolio">
+              <span class="custom-text" style="font-size:1.1rem;">Portfolio</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#contact" class="nav-link" data-text="Contact">
-              <span>Contact</span>
+            <a href="#contact" class="nav-link custom-text" data-text="Contact">
+              <span class="custom-text" style="font-size:1.1rem;">Contact</span>
             </a>
           </li>
         </ul>
@@ -107,14 +107,23 @@ onMounted(() => {
   }
 }
 
+
 .nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
   padding: 0 2rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
   height: 70px;
+}
+
+.full-width-logo {
+  flex: 1 1 0%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .logo {
@@ -123,13 +132,6 @@ onMounted(() => {
 }
 
 
-.logo-text {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-headline);
-  letter-spacing: -0.5px;
-}
-
 .nav-list {
   display: flex;
   align-items: center;
@@ -137,6 +139,7 @@ onMounted(() => {
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-right: 10rem;
 }
 
 .nav-item {
@@ -174,7 +177,7 @@ onMounted(() => {
   font-weight: 500;
   color: var(--color-paragraph);
   border-radius: 12px;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   overflow: hidden;
   letter-spacing: 0.3px;
 }
@@ -186,51 +189,18 @@ onMounted(() => {
 }
 
 
-.nav-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: var(--color-button);
-  opacity: 0.1;
-  transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  z-index: 1;
-}
 
-
-.nav-link::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
+.nav-link:hover,
+.nav-link:focus {
+  text-decoration: underline;
+  text-underline-offset: 10px;
   color: var(--color-button);
-  font-weight: 600;
-  transition: opacity 0.3s ease;
-  z-index: 3;
 }
 
-
-.nav-link:hover::before {
-  left: 0;
-}
-
-
-.nav-link:hover::after {
-  opacity: 1;
-}
-
-
-.nav-link:hover span {
-  opacity: 0;
-}
-
-.nav-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+.nav-link.active {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  color: var(--color-button);
 }
 
 
@@ -270,10 +240,6 @@ onMounted(() => {
   .nav-container {
     padding: 0 1rem;
     height: 60px;
-  }
-
-  .logo-text {
-    font-size: 1.3rem;
   }
 
   .nav-list {
