@@ -10,15 +10,25 @@
         <Description />
       </div>
     </div>
+
+    <!-- Section projets -->
+    <section class="projects-grid">
+      <ProjectCard v-for="(project, index) in projects" :key="index" :title="project.title" :year="project.year"
+        :image="project.image" :skills="project.skills" :link="project.link" :testimonial="project.testimonial"
+        :clientName="project.clientName" />
+    </section>
   </div>
 </template>
+
 <script setup>
-import { ref, onMounted, computed } from "vue"
+
+import { ref, onMounted, onUnmounted, computed } from "vue"
 import Loader from "../components/Loader.vue"
-import Header from "../components/Header.vue"
+import HeaderLangSwitcher from "../components/HeaderLangSwitcher.vue"
 import Robot from "../components/Robot.vue"
 import Description from "../components/Description.vue"
-import HeaderLangSwitcher from "../components/HeaderLangSwitcher.vue"
+import ProjectCard from "../components/ProjectCard.vue"
+import { projects } from "../projects"
 
 const isLoading = ref(true)
 const windowWidth = ref(window.innerWidth)
@@ -31,16 +41,18 @@ onMounted(() => {
   setTimeout(() => {
     isLoading.value = false
   }, 2000)
-  window.addEventListener('resize', onResize)
+  window.addEventListener("resize", onResize)
 })
 
-import { onUnmounted } from "vue"
 onUnmounted(() => {
-  window.removeEventListener('resize', onResize)
+  window.removeEventListener("resize", onResize)
 })
 
 const isMobile = computed(() => windowWidth.value <= 600)
+
+// Liste de projets importée depuis src/projects.ts
 </script>
+
 <style scoped>
 .main-content {
   display: flex;
@@ -62,6 +74,16 @@ const isMobile = computed(() => windowWidth.value <= 600)
   padding: 2vw;
 }
 
+/* --- GRID pour les projets --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 @media (max-width: 1024px) {
   .main-content {
     flex-direction: column;
@@ -77,21 +99,22 @@ const isMobile = computed(() => windowWidth.value <= 600)
     padding: 5vw 2vw;
   }
 }
-</style>
+
 @media (max-width: 600px) {
-.main-content {
-flex-direction: column;
-padding: 0;
+  .main-content {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .robot-side {
+    display: none !important;
+  }
+
+  .desc-side.full-width {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 6vw 2vw;
+    min-height: 200px;
+  }
 }
-.robot-side {
-display: none !important;
-}
-.desc-side.full-width {
-width: 100% !important;
-min-width: 0 !important;
-padding: 6vw 2vw;
-min-height: 200px;
-}
-}
-</style>
 </style>
