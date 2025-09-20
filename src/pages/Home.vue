@@ -15,7 +15,7 @@
     <section class="projects-grid">
       <ProjectCard v-for="(project, index) in projects" :key="index" :title="project.title" :year="project.year"
         :image="project.image" :skills="project.skills" :link="project.link" :testimonial="project.testimonial"
-        :clientName="project.clientName" />
+        :clientName="project.clientName" :isUpwork="project.isUpwork" />
     </section>
   </div>
 </template>

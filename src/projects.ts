@@ -9,34 +9,38 @@ export interface Project {
   link: string;
   testimonial: string;
   clientName: string;
+  isUpwork: boolean;
 }
 
 export const projects: Project[] = [
   {
-    title: "Extend Me",
-    year: "2023",
-    image: "/images/website.jpg",
-    skills: "Vue.js, TypeScript, Tailwind",
-    link: "https://monprojet.com",
-    testimonial: "Excellent travail, dépassé nos attentes !",
-    clientName: "Jean Dupont, CEO StartupCorp"
+    title: "Site web de e-santé",
+    year: "2022 - 2025",
+    image: "/images/symbiocenter.jpg",
+    skills: "Vue.js, Node.js, Bulma",
+    link: "https://www.symbiocenter.com",
+    testimonial: "",
+    clientName: "Symbiofi",
+    isUpwork: false,
   },
   {
-    title: "Portfolio",
-    year: "2024",
-    image: "/images/portfolio.jpg",
-    skills: "Nuxt 3, Tailwind, Vercel",
-    link: "https://monportfolio.com",
-    testimonial: "Très professionnel et rapide.",
-    clientName: "Marie Claire, Designer"
+    title: "Automatic Orders on Wix",
+    year: "2025",
+    image: "/images/wix-orders.jpg",
+    skills: "Wix, JavaScript, Automation",
+    link: "",
+    testimonial: "Louis is a great developer! I hired him for a job that other developers said was not doable. Louis not only did it, but got it done in less than a day! Highly recommended.",
+    clientName: "Client Upwork",
+    isUpwork: true,
   },
   {
-    title: "E-commerce",
-    year: "2022",
-    image: "/images/ecommerce.jpg",
-    skills: "Vue.js, Firebase",
-    link: "https://ecommerce.com",
-    testimonial: "Un site robuste et performant.",
-    clientName: "Paul Martin, CTO Shoply"
+    title: "PDF Generation from HTML",
+    year: "2025",
+    image: "/images/pdf-generation.png",
+    skills: "JavaScript, HTML, PDF generation",
+    link: "",
+    testimonial: "Louis is very dedicated and have a lot of good suggestion during the period of work. He deliver excellent work and he is easy to work with. If I have similar work in the future I will definitely hire Louis again. Thank You Louis!!",
+    clientName: "Client Upwork",
+    isUpwork: true,
   }
 ];
